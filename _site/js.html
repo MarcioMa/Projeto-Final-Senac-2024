@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
         <link rel="stylesheet" href="../_css/index.css">
+        <link rel="stylesheet" href="../_css/comentario.css">
     </head>
     <body>
         <div class="topo" class="material-symbols-outlined">
@@ -44,6 +45,28 @@
                     dinâmicos e atualização de conteúdo sem recarregar a página.</p>
                     <a href="#js" class="sbmais">Saiba mais</a>
             </section>
+
+            <fieldset id="comentario">
+                <h1>Comentário</h1>
+
+             <form id="comentar" action="post" method="post">
+                <input type="hidden" value="geral">
+                <p class="label">Nome:</p> 
+                <p><input type="text" placeholder="Seu nome" name="nome" id="nome" ></p>
+                <p class="label">Seu Email:</p>
+                <p ><input type="text" placeholder="Seu email" name="email" id="email"></p>
+                <p class="label">Sua Messagem:</p>
+                <p><textarea name="message" id="message"></textarea></p>
+                <p><input type="submit" class="submit" value="Enviar"></p>
+             </form>
+             
+             <ul class="ulComentado">
+                <li>#1</li>
+                <li>#2</li>
+                <li>#3</li>
+             </ul>
+
+            </fieldset>
         </div>
         <footer class="footer">
             <p class="pj2024">Projeto final Curso de programação JavaScript Senac 2024</p>
