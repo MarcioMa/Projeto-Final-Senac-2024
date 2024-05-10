@@ -31,14 +31,14 @@
             </ul>
         </div>
         <div class="all">
-            <form class="form-horizontal" id="cadFormulario">
+            <form class="form-horizontal" id="cadFormulario" name="cadFormulario">
                 <fieldset>
                   <legend>Novo Cadastro</legend>
 
                     <div class="form-group">
                       <label class="col-md-4 control-label" for="textinput">Nome</label>  
                       <div class="col-md-5">  
-                      <input id="textinput" name="nome" id="nome" type="text" placeholder="Seu Nome" class="form_input" required="">
+                      <input id="textinput" name="nome" id="nome" type="text" placeholder="Seu Nome" class="form_input" required="required">
                         
                       </div>
                     </div>
@@ -78,14 +78,14 @@
                     <div class="form-group">
                       <label class="col-md-4 control-label" for="txtPwd">Senha</label>
                       <div class="col-md-4">
-                        <input id="senha" name="senha" type="password" placeholder="Digite sua senha" class="form_input" required="">
+                        <input id="senha" name="senha" type="password" placeholder="Digite sua senha" class="form_input" required="required">
                       </div>
                     </div>
 
                     <div class="form-group">
                         <label class="col-md-4 control-label" for="txtRetrySenha">Confirme Senha</label>
                         <div class="col-md-4">
-                          <input id="retrySenha" name="retrySenha" type="password" placeholder="Confirme sua senha" class="form_input" required="">
+                          <input id="retrySenha" name="retrySenha" type="password" placeholder="Confirme sua senha" class="form_input" required="required">
                           <input type="hidden" value="0" id="ativo" name="ativo">
                         </div>
                       </div> 
@@ -98,8 +98,39 @@
                       </div>
                     </div>
                 </fieldset>
-                </form>  
-                <script src="../_js/scriptDB.js"></script>
+                </form>
+                <script>
+                  function enviarDados() {
+                  const formulario = document.getElementById("cadFormulario");
+                  const formData = new FormData(formulario);
+                  const jsonData = {};
+
+                  formData.forEach((value, key) => {
+                      jsonData[key] = value;
+                  });
+
+                  fetch('http://localhost:8080/user', {
+                      method: 'POST',
+                      headers: {
+                        'Content-Type': 'application/json'
+                      },
+                      body: JSON.stringify(jsonData)
+                  })
+                  .then(response => {
+                      if (!response.ok) {
+                          throw new Error('Erro ao enviar dados');
+                      }
+                      return response.json();
+                  })
+                  .then(data => {
+                      console.log('Resposta do servidor:', data);
+                      alert('Registro salvo com sucesso ' + data.message)
+                  })
+                  .catch(error => {
+                      console.error('Erro:', error);
+                  });
+}
+                </script>
         </div>
         <footer class="footer">
             <p class="pj2024">Projeto final Curso de programação JavaScript Senac 2024</p>

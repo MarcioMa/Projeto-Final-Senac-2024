@@ -1,0 +1,65 @@
+#message
+{
+  position:relative;
+  top:29%;
+  width:100%;
+  height:270px;
+  resize: none;
+}
+#submit{
+    width:500px; 
+    position: relative;
+    display: block;
+    float: left;
+    left: 30%;
+    padding: 10px;
+    margin: 5px auto;
+    border: none;
+    outline: none;
+    background-color: #0d6e22;
+    color: #fff;
+    text-shadow: 0 0 5px rgb(0, 0, 0);
+    font-family: inherit;
+    font-size: 25px;
+    font-family:'open_sansregular';
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s; 
+}
+#formContato{
+    text-align: center;
+}
+#email{
+    width: 100%;
+    height: 30px;
+    text-align: left;
+}
+#message #formContato
+{
+  position:absolute;
+  display:block;
+}
+
+h1{
+    display: block;
+    position: relative;
+    margin-bottom: 50px;
+    font-size: 32pt;
+    font-family: 'Segoe UI', Verdana, sans-serif;
+    text-shadow: 2px 4px #000;
+    color:rgba(255, 99, 71, 1)
+}
+label{
+    position: relative;
+    float: left;
+    text-align: left;
+    display: flex;
+    margin: 0%;
+    padding: 0%;
+    font-weight: bold;
+    font-size: 14pt;
+}
+#spnContato{
+    width: 100%;
+    text-align: center;
+}

@@ -5,30 +5,54 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
         <link rel="stylesheet" href="../_css/index.css">
+        <link rel="stylesheet" href="../_css/contato.css">
+        <link rel="shortcut icon" href="../_img/Favicon.png" />
     </head>
     <body>
         <div class="topo" class="material-symbols-outlined">
             <img class="logo" src="../_img/logomarca.png" alt="logomarca">
 
             <ul class="menu">
-                <li><a href="../_site/home.html">HOME</a></li>
-                <li><a href="../_site/html5.html">HMTL5</a></li>
-                <li><a href="../_site/css.html">CSS</a></li>
-                <li><a href="../_site/js.html">JAVASCRIPT</a></li>
+                <li><a href="../_site/home.html" onclick="window.window.headers = '../_site/contato.html';">HOME</a></li>
+                <li><a onclick="alert('Faça login para ver todo conteúdo!')" href="../_site/html5.html">HMTL5</a></li>
+                <li><a onclick="alert('Faça login para ver todo conteúdo!')" href="../_site/css.html">CSS</a></li>
+                <li><a onclick="alert('Faça login para ver todo conteúdo!')" href="../_site/js.html">JAVASCRIPT</a></li>
                 <li><a href="../_site/contato.html" style="color: red;">CONTATOS</a></li>
-                <li><a href="../_site/perfil.html">MINHA CONTA</a></li>
-                <li><a href="../index.html" onclick="logoff()">LOGOFF
+                <li id="perfil"><a href="../_site/perfil.html">MINHA CONTA</a></li>
+                <li><a id="logoff" href="../index.html" onclick="logoff()">LOGOFF
                     <span id="ico" class="material-symbols-outlined">
                         lock_person
                         </span>
                     </a>
                 </li>
-            </ul> 
+            </ul>
+            <script>
+                var user = sessionStorage.getItem('user');
+                
+                if (user) {
+                    var userData = JSON.parse(user);
+                    document.write('<p>Olá, ' + userData.email + '!</p>');
+                    document.getElementById('perfil').style.display = 'block';
+                } else {
+                    window.location.href = '../_site/contato.html';
+                    document.getElementById('perfil').style.display = 'none';
+                    document.getElementById('logoff').innerHTML = "LOGIN <span id='ico' class='material-symbols-outlined'>lock_person</span>";
+                    document.getElementById('logoff').href ='../_site/login.html'
+                    document.write('<p><strong>Bem-vindo</strong> Olá, visitante! Faça login para ver todo conteúdo.</p>');
+                }
+            </script>   
         </div>
         <div class="all">
             <section class="secHtml">
-                <h1>CONTATOS</h1>
-      
+                <span id="spnContato"><h1>CONTATOS</h1></span>
+                <form name="formContato" id="formContato">
+                    <label for="email">Seu e-mail:</label><br>
+                    <input type="email" id="email" name="email"><br>
+                    <label for="message">Sua mensagem:</label><br>
+                    <textarea id="message" name="message"></textarea><br>
+                    <button type="submit" id="submit" onclick="sendContato()">Enviar</button>
+                </form>
+                  </script>
             </section>
 
         </div>

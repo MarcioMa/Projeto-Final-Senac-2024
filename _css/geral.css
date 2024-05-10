@@ -279,3 +279,10 @@ footer p{
     background-color: #444444;
     transform: scale(1.03);
 }
+
+#comentario{
+    width: 100%;
+    height: 120px;
+    background-color: #ccc;
+    
+}
